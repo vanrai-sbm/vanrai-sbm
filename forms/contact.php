@@ -6,17 +6,47 @@
  * For more info and help: https://bootstrapmade.com/php-email-form/
  */
 
-$name = $_POST['name'];
-$email = $_POST['email'];
-$message = $_POST['message'];
-$to = "omkar.hande30@gmail.com";
-$subject = "Mail From website";
-$txt = "Name = " . $name . "\r\n  Email = " . $email . "\r\n Message =" . $message;
-$headers = "From: omkar.hande30@gmail.com" . "\r\n" .
-  "CC: vanrai.sbm@gmail.com";
-if ($email != NULL) {
-  mail($to, $subject, $txt, $headers);
-}
+    // Collect the sender's information from the form
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+
+    // Set the recipient email address
+    $to = "recipient@example.com";
+
+    // Set the email subject
+    $subject = "New message from $name";
+
+    // Build the email message
+    $body = "From: $name\n";
+    $body .= "Email: $email\n";
+    $body .= "Message: $message";
+
+    // Set the email headers
+    $headers = "From: $email\r\n";
+    $headers .= "Reply-To: $email\r\n";
+    $headers .= "Content-type: text/plain; charset=utf-8\r\n";
+
+    // Send the email
+    if(mail($to, $subject, $body, $headers)) {
+        echo "Your message has been sent!";
+    } else {
+        echo "There was an error sending your message.";
+    }
+// ---------------------------------
+
+// $name = $_POST['name'];
+// $email = $_POST['email'];
+// $message = $_POST['message'];
+// $to = "omkar.hande30@gmail.com";
+// $subject = "Mail From website";
+// $txt = "Name = " . $name . "\r\n  Email = " . $email . "\r\n Message =" . $message;
+// $headers = "From: omkar.hande30@gmail.com" . "\r\n" .
+//   "CC: vanrai.sbm@gmail.com";
+// if ($email != NULL) {
+//   mail($to, $subject, $txt, $headers);
+// }
+// ----------------------------------
 //redirect
 // header("Location:thankyou.html");
 // Replace contact@example.com with your real receiving email address
