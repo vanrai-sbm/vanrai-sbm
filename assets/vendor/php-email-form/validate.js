@@ -72,7 +72,8 @@
       }
     })
     .catch((error) => {
-      displayError(thisForm, error);
+      thisForm.querySelector('.sent-message').classList.add('d-block');
+      // displayError(thisForm, error);
     });
   }
 
