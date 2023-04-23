@@ -70,12 +70,8 @@
       } else {
         throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
       }
-      var form = document.getElementById("contact");
-      form.reset();
     })
     .catch((error) => {
-      var form = document.getElementById("contact");
-      form.reset();
       thisForm.querySelector('.sent-message').classList.add('d-block');
       // displayError(thisForm, error);
     });
